@@ -2,6 +2,10 @@ name: Hello World Workflow
 
 on:
   workflow_dispatch:
+    inputs:
+      image:
+        description: 'Image types'
+        required: true
 jobs:
   say-hello:
     runs-on: ubuntu-latest  
