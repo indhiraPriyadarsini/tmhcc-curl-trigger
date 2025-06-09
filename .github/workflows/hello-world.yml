@@ -1,4 +1,4 @@
-name: Experiment
+name: Testing
 on: 
   schedule:
   - cron: '*/5 * * * *'
