@@ -1,31 +1,16 @@
-name: Hello World Workflow
-
-on:
-  push:
-    branches:
-      - main
+name: Experiment
+on: 
   schedule:
-    - cron: '*/5 * * * *'  
-  workflow_dispatch:
-    inputs:
-      image:
-        description: 'List of image tags'
-        required: true
-        default: '["alpine", "python"]'
+  - cron: '*/5 * * * *'
 
 jobs:
-  say-hello:
-    runs-on: ubuntu-latest  
+  job1:
+    name: Debug
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Git checkout
       uses: actions/checkout@v2
-
-    - name: Print a greeting
-      run: echo "Hello, world!"
-
-    - name: Print the image tags
-      run: |
-        echo "Image tags received: "hello"
-
-
+      with: { ref: debug }
+    - name: List files
+      run: ls
