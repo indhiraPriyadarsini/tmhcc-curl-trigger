@@ -1,15 +1,26 @@
-name: Testing
-on: 
+name: Hello World Workflow
+
+on:
   schedule:
-  - cron: '*/5 * * * *'
+    - cron: '*/5 * * * *'  
+  # workflow_dispatch:
+  #   inputs:
+  #     image:
+  #       description: 'List of image tags'
+  #       required: true
+  #       default: '["alpine", "python"]'
 
 jobs:
-  job1:
-    name: Debug
+  say-hello:
     runs-on: self-hosted
+
     steps:
-    - name: Git checkout
+    - name: Checkout repository
       uses: actions/checkout@v2
-      with: { ref: debug }
-    - name: List files
-      run: ls
+
+    - name: Print a greeting
+      run: echo "Hello, world!"
+
+    - name: Print the image tags
+      run: |
+        echo "Image tags received"
