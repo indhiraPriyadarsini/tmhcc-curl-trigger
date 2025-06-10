@@ -1,14 +1,14 @@
 name: Hello World Workflow
 
 on:
-  schedule:
-    - cron: '*/5 * * * *'  
-  # workflow_dispatch:
-  #   inputs:
-  #     image:
-  #       description: 'List of image tags'
-  #       required: true
-  #       default: '["alpine", "python"]'
+  # schedule:
+  #   - cron: '*/5 * * * *'  
+  workflow_dispatch:
+    inputs:
+      image:
+        description: 'List of image tags'
+        required: true
+        default: '["alpine", "python"]'
 
 jobs:
   say-hello:
